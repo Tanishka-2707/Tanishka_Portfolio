@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import SectionWrapper from "./SectionWrapper";
+import SectionWrapper, { childVariants } from "./SectionWrapper";
 import { Award, Users, Mic, Medal } from "lucide-react";
 
 const experiences = [
@@ -29,28 +29,38 @@ const experiences = [
   },
 ];
 
+const cardVariants = {
+  hidden: (i: number) => ({ opacity: 0, x: i % 2 === 0 ? -50 : 50 }),
+  visible: (i: number) => ({
+    opacity: 1,
+    x: 0,
+    transition: { delay: i * 0.12, duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] as const },
+  }),
+};
+
 const ExperienceSection = () => (
   <SectionWrapper id="experience" className="section-gradient">
     <div className="max-w-7xl mx-auto">
-      <div className="text-center mb-20">
+      <motion.div variants={childVariants} className="text-center mb-20">
         <p className="text-xs tracking-[0.35em] uppercase text-accent mb-4 font-body">Journey</p>
         <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
           Experience & <span className="gradient-text">Contributions</span>
         </h2>
-      </div>
+      </motion.div>
 
       <div className="max-w-3xl mx-auto space-y-6">
         {experiences.map((exp, i) => (
           <motion.div
             key={exp.role}
-            initial={{ opacity: 0, x: i % 2 === 0 ? -40 : 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            custom={i}
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
-            transition={{ delay: i * 0.1, duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-            whileHover={{ x: 6 }}
+            whileHover={{ x: 8, transition: { duration: 0.3, ease: "easeOut" } }}
             className="glass-card gradient-border p-7 flex gap-6 items-start group"
           >
-            <div className="w-12 h-12 rounded-xl bg-secondary/80 flex-shrink-0 flex items-center justify-center group-hover:shadow-[0_0_24px_hsl(var(--glow-soft)/0.15)] transition-all duration-500">
+            <div className="w-12 h-12 rounded-xl bg-secondary/80 flex-shrink-0 flex items-center justify-center group-hover:shadow-[0_0_28px_hsl(var(--glow-soft)/0.2)] transition-all duration-500">
               <exp.icon size={22} className="text-accent" strokeWidth={1.5} />
             </div>
             <div>

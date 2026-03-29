@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import SectionWrapper from "./SectionWrapper";
+import SectionWrapper, { childVariants } from "./SectionWrapper";
 import { Mail, Linkedin, Globe } from "lucide-react";
 
 const contactLinks = [
@@ -8,21 +8,31 @@ const contactLinks = [
   { icon: Globe, label: "Portfolio", value: "More links coming soon", href: "#" },
 ];
 
+const linkVariants = {
+  hidden: { opacity: 0, y: 20, x: -10 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    x: 0,
+    transition: { delay: 0.25 + i * 0.12, duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const },
+  }),
+};
+
 const ContactSection = () => (
   <SectionWrapper id="contact" className="section-gradient">
     <div className="max-w-7xl mx-auto">
-      <div className="text-center mb-20">
+      <motion.div variants={childVariants} className="text-center mb-20">
         <p className="text-xs tracking-[0.35em] uppercase text-accent mb-4 font-body">Get in Touch</p>
         <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
           Let's <span className="gradient-text">Connect</span>
         </h2>
-      </div>
+      </motion.div>
 
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 40, scale: 0.97 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+        transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] as const }}
         className="glass-card gradient-border p-8 md:p-14 max-w-lg mx-auto text-center"
       >
         <p className="text-muted-foreground font-body mb-10 leading-[1.8] text-[15px]">
@@ -35,14 +45,15 @@ const ContactSection = () => (
             <motion.a
               key={item.label}
               href={item.href}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              custom={i}
+              variants={linkVariants}
+              initial="hidden"
+              whileInView="visible"
               viewport={{ once: true }}
-              transition={{ delay: 0.2 + i * 0.1 }}
-              whileHover={{ scale: 1.02, x: 6 }}
+              whileHover={{ scale: 1.03, x: 8, transition: { duration: 0.3, ease: "easeOut" } }}
               className="flex items-center gap-4 p-4 rounded-xl bg-secondary/40 hover:bg-secondary/60 border border-border/20 hover:border-accent/20 transition-all duration-400 group"
             >
-              <div className="w-10 h-10 rounded-xl bg-muted/60 flex items-center justify-center group-hover:shadow-[0_0_20px_hsl(var(--glow-soft)/0.15)] transition-all duration-500">
+              <div className="w-10 h-10 rounded-xl bg-muted/60 flex items-center justify-center group-hover:shadow-[0_0_24px_hsl(var(--glow-soft)/0.2)] transition-all duration-500">
                 <item.icon size={17} className="text-accent" strokeWidth={1.5} />
               </div>
               <div className="text-left">
