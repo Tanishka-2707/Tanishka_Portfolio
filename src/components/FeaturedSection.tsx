@@ -49,11 +49,7 @@ const FeaturedSection = () => (
           ))}
         </div>
 
-        <div className="mt-8 pt-6 border-t border-border/50 flex gap-4">
-          <a href="#" className="text-sm text-accent hover:text-foreground transition-colors font-body">
-            View in Figma →
-          </a>
-        </div>
+        
       </div>
     </div>
   </SectionWrapper>
