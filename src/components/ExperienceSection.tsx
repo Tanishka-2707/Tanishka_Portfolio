@@ -6,25 +6,25 @@ const experiences = [
   {
     role: "Creative Lead",
     org: "GDG on Campus IIIT Kalyani",
-    desc: "Lead the creative team for all event branding, poster design, and digital content strategy.",
+    desc: "Spearheaded the creative direction for all event branding, poster design, and digital content — shaping how GDG communicates visually on campus.",
     icon: Award,
   },
   {
     role: "Hackathon Pitching Host",
     org: "GDG Offline Hackathon",
-    desc: "Hosted and coordinated the pitching event for GDG's offline hackathon, managing participants and flow.",
+    desc: "Orchestrated the pitching segment of GDG's offline hackathon, ensuring smooth flow, clear communication, and an engaging experience for participants.",
     icon: Mic,
   },
   {
     role: "Management Lead",
     org: "College Badminton Tournament",
-    desc: "Led the management and logistics for the college-wide badminton tournament.",
+    desc: "Managed end-to-end logistics and coordination for the college-wide badminton tournament, from scheduling to execution.",
     icon: Medal,
   },
   {
     role: "Design Contributor",
     org: "Sports Club, IEEE Club & Events",
-    desc: "Created posters and promotional materials for multiple college clubs and campus-wide events.",
+    desc: "Delivered impactful posters and promotional materials across multiple campus organizations, maintaining visual consistency and creative quality.",
     icon: Users,
   },
 ];
@@ -32,9 +32,9 @@ const experiences = [
 const ExperienceSection = () => (
   <SectionWrapper id="experience" className="section-gradient">
     <div className="max-w-7xl mx-auto">
-      <div className="text-center mb-16">
-        <p className="text-sm tracking-[0.3em] uppercase text-accent mb-3 font-body">Journey</p>
-        <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground">
+      <div className="text-center mb-20">
+        <p className="text-xs tracking-[0.35em] uppercase text-accent mb-4 font-body">Journey</p>
+        <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
           Experience & <span className="gradient-text">Contributions</span>
         </h2>
       </div>
@@ -43,19 +43,20 @@ const ExperienceSection = () => (
         {experiences.map((exp, i) => (
           <motion.div
             key={exp.role}
-            initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
+            initial={{ opacity: 0, x: i % 2 === 0 ? -40 : 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.1, duration: 0.5 }}
-            className="glass-card-hover p-6 flex gap-5 items-start"
+            transition={{ delay: i * 0.1, duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+            whileHover={{ x: 6 }}
+            className="glass-card gradient-border p-7 flex gap-6 items-start group"
           >
-            <div className="w-12 h-12 rounded-xl bg-secondary flex-shrink-0 flex items-center justify-center">
-              <exp.icon size={22} className="text-accent" />
+            <div className="w-12 h-12 rounded-xl bg-secondary/80 flex-shrink-0 flex items-center justify-center group-hover:shadow-[0_0_24px_hsl(var(--glow-soft)/0.15)] transition-all duration-500">
+              <exp.icon size={22} className="text-accent" strokeWidth={1.5} />
             </div>
             <div>
-              <h3 className="font-heading font-semibold text-foreground">{exp.role}</h3>
-              <p className="text-sm text-accent font-body mb-1">{exp.org}</p>
-              <p className="text-sm text-muted-foreground font-body leading-relaxed">{exp.desc}</p>
+              <h3 className="font-heading font-semibold text-foreground text-[15px]">{exp.role}</h3>
+              <p className="text-xs text-accent font-body mb-2 tracking-wide">{exp.org}</p>
+              <p className="text-sm text-muted-foreground font-body leading-[1.8]">{exp.desc}</p>
             </div>
           </motion.div>
         ))}

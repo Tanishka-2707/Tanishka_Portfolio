@@ -1,48 +1,77 @@
+import { motion } from "framer-motion";
 import SectionWrapper from "./SectionWrapper";
+
+const stats = [
+  { label: "Education", value: "B.Tech CSE, IIIT Kalyani" },
+  { label: "Focus", value: "Graphic & UI Design" },
+  { label: "Passion", value: "Visual Storytelling" },
+  { label: "Goal", value: "UI/UX Designer" },
+];
 
 const AboutSection = () => (
   <SectionWrapper id="about">
     <div className="max-w-7xl mx-auto">
-      <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="grid lg:grid-cols-2 gap-20 items-center">
         <div className="order-2 lg:order-1">
-          <p className="text-sm tracking-[0.3em] uppercase text-accent mb-3 font-body">About Me</p>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6">
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-xs tracking-[0.35em] uppercase text-accent mb-4 font-body"
+          >
+            About Me
+          </motion.p>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-8 leading-tight"
+          >
             Crafting visuals with <span className="gradient-text">purpose</span>
-          </h2>
-          <div className="space-y-4 text-muted-foreground font-body leading-relaxed">
-            <p>
+          </motion.h2>
+          <div className="space-y-5 text-muted-foreground font-body leading-[1.85] text-[15px]">
+            <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.2 }}>
               I'm a Computer Science student at IIIT Kalyani with a deep passion for design. While code is my foundation,
               design is where I truly express myself — transforming raw ideas into visually compelling outputs that resonate.
-            </p>
-            <p>
-              My design philosophy is rooted in clarity and intentionality. I believe every visual should serve a purpose,
-              and every element should earn its place on the canvas. Clean over cluttered, always aligned with requirements,
-              and crafted with aesthetic balance.
-            </p>
-            <p>
-              Currently exploring the world of UI/UX design, I'm focused on bridging the gap between beautiful interfaces
+            </motion.p>
+            <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
+              My design philosophy is rooted in clarity and intentionality. Every visual should serve a purpose,
+              every element should earn its place on the canvas. Clean over cluttered, always aligned with requirements,
+              crafted with aesthetic balance.
+            </motion.p>
+            <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }}>
+              Currently exploring UI/UX design, bridging the gap between beautiful interfaces
               and meaningful user experiences.
-            </p>
+            </motion.p>
           </div>
         </div>
 
-        <div className="order-1 lg:order-2 flex justify-center">
-          <div className="glass-card p-8 max-w-sm">
-            <div className="space-y-4">
-              {[
-                { label: "Education", value: "B.Tech CSE, IIIT Kalyani" },
-                { label: "Focus", value: "Graphic & UI Design" },
-                { label: "Passion", value: "Visual Storytelling" },
-                { label: "Goal", value: "UI/UX Designer" },
-              ].map((item) => (
-                <div key={item.label} className="border-b border-border/50 pb-3 last:border-0">
-                  <p className="text-xs uppercase tracking-widest text-accent mb-1 font-body">{item.label}</p>
-                  <p className="text-foreground font-heading font-medium">{item.value}</p>
-                </div>
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3, duration: 0.7 }}
+          className="order-1 lg:order-2 flex justify-center"
+        >
+          <div className="glass-card gradient-border p-8 md:p-10 max-w-sm w-full">
+            <div className="space-y-5">
+              {stats.map((item, i) => (
+                <motion.div
+                  key={item.label}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4 + i * 0.1 }}
+                  className="border-b border-border/30 pb-4 last:border-0 last:pb-0"
+                >
+                  <p className="text-[10px] uppercase tracking-[0.25em] text-accent mb-1.5 font-body">{item.label}</p>
+                  <p className="text-foreground font-heading font-medium text-[15px]">{item.value}</p>
+                </motion.div>
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   </SectionWrapper>
