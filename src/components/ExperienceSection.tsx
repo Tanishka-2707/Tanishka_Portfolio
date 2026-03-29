@@ -5,25 +5,31 @@ import { Award, Users, Mic, Medal } from "lucide-react";
 const experiences = [
   {
     role: "Creative Lead",
-    org: "GDG on Campus IIIT Kalyani",
+    org: "GDG on Campus, IIIT Kalyani",
     desc: "Lead the creative team for all event branding, poster design, and digital content strategy.",
     icon: Award,
   },
   {
     role: "Hackathon Pitching Host",
-    org: "GDG Offline Hackathon",
-    desc: "Hosted and coordinated the pitching event for GDG's offline hackathon, managing participants and flow.",
+    org: "InnovateX Hackathon",
+    desc: "Hosted and coordinated the pitching event for a hackathon InnovateX, managing participants and flow.",
     icon: Mic,
   },
   {
-    role: "Management Lead",
+    role: "Lead Organiser",
     org: "College Badminton Tournament",
     desc: "Led the management and logistics for the college-wide badminton tournament.",
     icon: Medal,
   },
   {
     role: "Design Contributor",
-    org: "Sports Club, IEEE Club & Events",
+    org: "Sports Club, Gymkhana, IIIT Kalyani",
+    desc: "Created posters and promotional materials for multiple college clubs and campus-wide events.",
+    icon: Users,
+  },
+  {
+    role: "Design Contributor",
+    org: "IEEE Student's Chapter, IIIT Kalyani",
     desc: "Created posters and promotional materials for multiple college clubs and campus-wide events.",
     icon: Users,
   },

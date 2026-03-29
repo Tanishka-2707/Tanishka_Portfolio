@@ -25,9 +25,9 @@ const ContactSection = () => (
 
         <div className="space-y-4">
           {[
-            { icon: Mail, label: "Email", value: "your.email@example.com", href: "mailto:your.email@example.com" },
-            { icon: Linkedin, label: "LinkedIn", value: "Connect on LinkedIn", href: "#" },
-            { icon: Globe, label: "Portfolio", value: "More links coming soon", href: "#" },
+            { icon: Mail, label: "Email", value: "tanishka27.jn23@gmail.com", href: "mailto:tanishka27.jn23@gmail.com" },
+            { icon: Linkedin, label: "LinkedIn", value: "Tanishka Jain", href: "https://www.linkedin.com/in/tanishka-jain-aa174833b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" },
+            { icon: Globe, label: "GitHub", value: "Tanishka-2707", href: "https://github.com/Tanishka-2707" },
           ].map((item) => (
             <motion.a
               key={item.label}

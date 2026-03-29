@@ -72,13 +72,14 @@ const HeroSection = () => {
 
             <div className="flex gap-4">
               {[
-                { icon: Linkedin, href: "#", label: "LinkedIn" },
-                { icon: Github, href: "#", label: "GitHub" },
-                { icon: Mail, href: "#contact", label: "Email" },
+                { icon: Linkedin, href: "https://www.linkedin.com/in/tanishka-jain-aa174833b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", label: "LinkedIn" },
+                { icon: Github, href: "https://github.com/Tanishka-2707", label: "GitHub" },
+                { icon: Mail, href: "mailto:tanishka27.jn23@gmail.com", label: "Email" },
               ].map(({ icon: Icon, href, label }) => (
                 <motion.a
                   key={label}
                   href={href}
+                  target="_blank"
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   className="glass-card p-3 text-muted-foreground hover:text-accent transition-colors duration-300"
@@ -97,8 +98,9 @@ const HeroSection = () => {
             className="flex justify-center"
           >
             <div className="relative">
-              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full glass-card glow-border flex items-center justify-center animate-float">
-                <span className="text-6xl md:text-7xl font-heading font-bold gradient-text">TJ</span>
+              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full glass-card glow-border flex items-center justify-center animate-float object-fill overflow-hidden">
+                {/* <span className="text-6xl md:text-7xl font-heading font-bold gradient-text">TJ</span> */}
+                <img src="/Tanishka.JPG" alt="" className="object-fill" />
               </div>
               <div className="absolute -inset-4 rounded-full bg-gradient-to-br from-primary/20 via-transparent to-accent/20 blur-2xl -z-10" />
             </div>
