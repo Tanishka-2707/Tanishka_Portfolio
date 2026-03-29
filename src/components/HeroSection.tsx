@@ -72,13 +72,14 @@ const HeroSection = () => {
 
             <div className="flex gap-4">
               {[
-                { icon: Linkedin, href: "#", label: "LinkedIn" },
-                { icon: Github, href: "#", label: "GitHub" },
-                { icon: Mail, href: "#contact", label: "Email" },
+                { icon: Linkedin, href: "https://www.linkedin.com/in/tanishka-jain-aa174833b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", label: "LinkedIn" },
+                { icon: Github, href: "https://github.com/Tanishka-2707", label: "GitHub" },
+                { icon: Mail, href: "mailto:tanishka27.jn23@gmail.com", label: "Email" },
               ].map(({ icon: Icon, href, label }) => (
                 <motion.a
                   key={label}
                   href={href}
+                  target="_blank"
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   className="glass-card p-3 text-muted-foreground hover:text-accent transition-colors duration-300"
