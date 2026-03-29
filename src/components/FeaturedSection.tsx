@@ -23,7 +23,7 @@ const cardVariants = {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { delay: 0.15 + i * 0.12, duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const },
+    transition: { delay: 0.15 + i * 0.12, duration: 0.6, ease: 'easeInOut' as const },
   }),
 };
 
@@ -41,7 +41,7 @@ const FeaturedSection = () => (
         initial={{ opacity: 0, y: 40, scale: 0.97 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] as const }}
+        transition={{ duration: 0.8, ease: 'easeInOut' as const }}
         className="glass-card gradient-border p-8 md:p-14 max-w-5xl mx-auto"
       >
         <motion.h3

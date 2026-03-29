@@ -14,7 +14,7 @@ const linkVariants = {
     opacity: 1,
     y: 0,
     x: 0,
-    transition: { delay: 0.25 + i * 0.12, duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const },
+    transition: { delay: 0.25 + i * 0.12, duration: 0.6, ease: 'easeInOut' as const },
   }),
 };
 
@@ -32,7 +32,7 @@ const ContactSection = () => (
         initial={{ opacity: 0, y: 40, scale: 0.97 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] as const }}
+        transition={{ duration: 0.8, ease: 'easeInOut' as const }}
         className="glass-card gradient-border p-8 md:p-14 max-w-lg mx-auto text-center"
       >
         <p className="text-muted-foreground font-body mb-10 leading-[1.8] text-[15px]">

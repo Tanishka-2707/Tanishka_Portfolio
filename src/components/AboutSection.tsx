@@ -45,7 +45,7 @@ const AboutSection = () => (
           initial={{ opacity: 0, x: 50, scale: 0.95 }}
           whileInView={{ opacity: 1, x: 0, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] as const }}
+          transition={{ delay: 0.3, duration: 0.8, ease: 'easeInOut' as const }}
           className="order-1 lg:order-2 flex justify-center"
         >
           <div className="glass-card gradient-border p-8 md:p-10 max-w-sm w-full">
@@ -56,7 +56,7 @@ const AboutSection = () => (
                   initial={{ opacity: 0, x: 25 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: 0.4 + i * 0.12, duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] as const }}
+                  transition={{ delay: 0.4 + i * 0.12, duration: 0.5, ease: 'easeInOut' as const }}
                   className="border-b border-border/30 pb-4 last:border-0 last:pb-0"
                 >
                   <p className="text-[10px] uppercase tracking-[0.25em] text-accent mb-1.5 font-body">{item.label}</p>
