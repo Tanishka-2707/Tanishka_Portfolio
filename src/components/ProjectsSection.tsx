@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import SectionWrapper from "./SectionWrapper";
+import SectionWrapper, { childVariants } from "./SectionWrapper";
 import { ExternalLink, Eye } from "lucide-react";
 
 const projects = [
@@ -11,25 +11,36 @@ const projects = [
   { title: "UI Explorations", category: "UI Design", desc: "Personal UI design explorations and concept interfaces built in Figma.", figmaLink: "#" },
 ];
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 50, scale: 0.95 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { delay: i * 0.1, duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] },
+  }),
+};
+
 const ProjectsSection = () => (
   <SectionWrapper id="projects">
     <div className="max-w-7xl mx-auto">
-      <div className="text-center mb-20">
+      <motion.div variants={childVariants} className="text-center mb-20">
         <p className="text-xs tracking-[0.35em] uppercase text-accent mb-4 font-body">Work</p>
         <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
           Selected <span className="gradient-text">Projects</span>
         </h2>
-      </div>
+      </motion.div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project, i) => (
           <motion.div
             key={project.title}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            custom={i}
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
-            transition={{ delay: i * 0.08, duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-            whileHover={{ y: -8 }}
+            whileHover={{ y: -10, transition: { duration: 0.35, ease: "easeOut" } }}
             className="glass-card gradient-border group overflow-hidden cursor-pointer"
           >
             <div className="h-48 bg-gradient-to-br from-secondary via-muted/80 to-secondary flex items-center justify-center relative overflow-hidden">
@@ -46,7 +57,7 @@ const ProjectsSection = () => (
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="flex items-center gap-1.5 text-xs text-accent hover:text-foreground transition-colors font-body"
+                  className="flex items-center gap-1.5 text-xs text-accent hover:text-foreground transition-colors duration-300 font-body"
                 >
                   <Eye size={13} strokeWidth={1.5} /> View Details
                 </motion.button>
@@ -54,7 +65,7 @@ const ProjectsSection = () => (
                   href={project.figmaLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-accent transition-colors font-body"
+                  className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-accent transition-colors duration-300 font-body"
                 >
                   <ExternalLink size={13} strokeWidth={1.5} /> Figma
                 </a>
